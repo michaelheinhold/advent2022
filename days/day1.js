@@ -3,15 +3,9 @@ const textFile = readFileSync('./inputs/day1.txt').toString('utf-8');
 const elves = textFile.split(/\r?\n\r?\n/);
 
 function solutions(text) {
-  const combinedCals = text.map(elf => {
-    const eachItem = elf.split(/\r?\n/)
-    let totalCals = 0;
-    eachItem.map(e => totalCals += +e)
-    return totalCals
-  })
+  const combinedCals = text.map(elf => parseInt(elf.split(/\r?\n/).reduce((a, b) => parseInt(a) + parseInt(b))));
   const largeToSmall = combinedCals.sort((a, b) => b - a)
-  const topThree = largeToSmall.slice(0, 3)
-  const threeLargestSums = topThree[0] + topThree[1] + topThree[2]
+  const threeLargestSums = largeToSmall.slice(0, 3).reduce((a, b) => a + b)
   console.log(largeToSmall[0])
   console.log(threeLargestSums)
 }
