@@ -41,8 +41,6 @@ function filterData(rucksacks) {
   return newArr.reduce((a, b) => a + b)
 }
 
-console.log(filterData(rucksacks))
-
 function createGroups(rucksack) {
   let groupsOfThree = []
   for(let i = 0; i < rucksack.length; i+=3){
@@ -61,4 +59,6 @@ function filterData2(rucksack) {
   return newArr.reduce((a, b) => a + b)
 }
 
+
+console.log(filterData(rucksacks))
 console.log(filterData2(rucksacks))
